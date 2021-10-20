@@ -13,7 +13,8 @@ taste of what you might be dealing with in Tymeshift.
 - To build image run `make build` or run `docker build` command from Makefile
 - Run `make run` to start container or run `docker run` command from Makefile
 - Inside container run `composer install` to install all dependencies 
-- and `make test`to run unit test suite  
+- and `make test` to run unit test suite
+- You can upload your solution to GitHub or send us a ZIP file with the solution at careers@tymeshift.com
 
 ## Tasks
 - Look around see what you like\don't like get familiar with code structure, so we can discuss it on interview
