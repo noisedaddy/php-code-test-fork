@@ -1,7 +1,7 @@
 # tymeshift's PHP code test 🧪
 
 ## Task Description 
-This test project represents a small and simplied part of our backend. It is not identical to what we're using in production but it shows very briefly what is the structure and patterns that we're applying at tymeshift.
+This test project represents a small and simplified part of our backend. It is not identical to what we're using in production but it shows very briefly what is the structure and patterns that we're applying at tymeshift.
 
 ## Prerequisites
 - `make` installed on your PC
@@ -12,7 +12,7 @@ This test project represents a small and simplied part of our backend. It is not
 - Run `make run` to start container or run `docker run` command from Makefile
 - Inside container run `composer install` to install all dependencies 
 - Followed by `make test` to run unit test suite
-- You can upload your solution to GitHub or send us a ZIP file with the solution at careers@tymeshift.com
+- You can upload your solution to GitHub or send us a ZIP file with the solution via email (via reply in Breezy)
 
 ## Tasks
 - Look around see what you like \ don't like and get familiar with code structure, so we can discuss it during the interview
