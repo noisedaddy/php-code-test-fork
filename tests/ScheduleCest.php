@@ -21,7 +21,7 @@ class ScheduleCest
      * @var ScheduleRepository
      */
     private $scheduleRepository;
-    
+
     public function _before()
     {
         $this->scheduleStorageMock = \Mockery::mock(ScheduleStorage::class);
@@ -36,7 +36,7 @@ class ScheduleCest
     }
 
     /**
-     * @dataProvider scheduleProvider
+     * @dataProvider schedulesProvider
      */
     public function testGetByIdSuccess(Example $example, \UnitTester $tester)
     {
@@ -46,7 +46,7 @@ class ScheduleCest
         $this->scheduleStorageMock
             ->shouldReceive('getById')
             ->with($id)
-            ->andReturn(['id' => $id, 'start_time' => $startTime, 'end_time' => $endTime, 'name' => $name]);
+            ->andReturn($data);
 
         $entity = $this->scheduleRepository->getById($id);
         $tester->assertEquals($id, $entity->getId());
@@ -61,17 +61,18 @@ class ScheduleCest
     {
         $this->scheduleStorageMock
             ->shouldReceive('getById')
-            ->with(4)
+            ->with(9)
             ->andReturn([]);
+
         $tester->expectThrowable(StorageDataMissingException::class, function () {
-            $this->scheduleRepository->getById(4);
+            $this->scheduleRepository->getById(9);
         });
     }
 
     /**
      * @return array[]
      */
-    protected function scheduleProvider()
+    protected function schedulesProvider()
     {
         return [
             ['id' => 1, 'start_time' => 1631232000, 'end_time' => 1631232000 + 86400, 'name' => 'Test'],

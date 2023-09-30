@@ -9,14 +9,9 @@ use Tymeshift\PhpTest\Interfaces\StorageInterface;
 
 class ScheduleStorage
 {
-    /**
-     * @var DatabaseInterface
-     */
-    private $db;
-
-    public function __construct(DatabaseInterface $database)
-    {
-        $this->db = $database;
+    public function __construct(
+        private DatabaseInterface $db,
+    ) {
     }
 
     public function getById(int $id): array
