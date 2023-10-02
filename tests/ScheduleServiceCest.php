@@ -64,7 +64,7 @@ class ScheduleServiceCest
     public function testFillScheduleItemsSuccess(Example $example, \UnitTester $tester): void
     {
         $data = [ 'id' => 1, 'start_time' => 1631232000, 'end_time' => 1631232000 + 86400, 'name' => 'Test' ];
-        $tasks = iterator_to_array($example->getIterator(), true);
+        $tasks = iterator_to_array($example, true);
 
         $this->httpClientMock
             ->shouldReceive('request')
@@ -77,9 +77,9 @@ class ScheduleServiceCest
 
         $schedule = $this->scheduleService->addScheduleItems(1);
 
-        $tester->assertEquals(1, $schedule->getId());
-        $tester->assertEquals('Test', $schedule->getName());
-        $tester->assertCount(3, $schedule->getItems()[0]);
+        $tester->assertEquals($data['id'], $schedule->getId());
+        $tester->assertEquals($data['name'], $schedule->getName());
+        $tester->assertCount(count($tasks), $schedule->getItems()[0]);
     }
 
     /**
